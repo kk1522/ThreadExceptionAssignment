@@ -33,30 +33,29 @@ class SetColor extends Thread {
 
 	public void run() {
 
-		while ((greenCount + redCount) != 10) {
+		while ((greenCount + redCount) < 10) {
 			int i = rn.nextInt((10 - 0 + 0) + 0);
 			Color currentColor = txtField[i].getBackground();
-			System.out.println(c);
-			System.out.println("White color"+Color.WHITE);
-			System.out.println("current color" + txtField[i].getBackground());
+				
+			System.out.println("Text field "+i);
 			if (currentColor.equals(Color.WHITE) && c.equals(Color.green)) {
-				System.out.println("1");
+				System.out.println("if statement 1");
 				greenCount++;
 				txtField[i].setBackground(c);
 			} else if (currentColor.equals(Color.WHITE) && c.equals(Color.red)) {
 				redCount++;
 				txtField[i].setBackground(c);
-				System.out.println("2");
+				System.out.println("if statement 2");
 			} else if (Color.red.equals(currentColor) && Color.green.equals(c)) {
 				redCount--;
 				greenCount++;
 				txtField[i].setBackground(c);
-				System.out.println("3");
-			} else if (Color.red.equals(currentColor) && Color.green.equals(c)) {
+				System.out.println("if statement 3");
+			} else if (Color.green.equals(currentColor) && Color.red.equals(c)) {
 				redCount++;
 				greenCount--;
 				txtField[i].setBackground(c);
-				System.out.println("4");
+				System.out.println("if statement 4");
 			}
 
 			System.out.println("red team :" + redCount);
@@ -76,6 +75,7 @@ class SetFrame {
 
 	public TextField[] setFrameMethod() {
 		Frame f = new Frame();
+		
 		f.setSize(700, 300);
 		f.setVisible(true);
 		f.setLayout(new GridLayout());
